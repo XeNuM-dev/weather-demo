@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Погода</title>
+</head>
+<body>
+    <div class="weather">
+        <div class="weather__inner">
+            <div class="current">
+                <div class="current__city"></div>
+                <div class="current__description"></div>
+                <div class="current__temperature">&deg</div>
+            </div>
+
+            <div class="forecast">
+                <div class="forecast__item">
+                    <div class="forecast__time">Сейчас</div>
+                    <div class="forecast__icon icon__01d"></div>
+                    <div class="forecast__temperature">&deg</div>
+                </div>
+                
+                <div class="forecast__item">
+                    <div class="forecast__time"></div>
+                    <div class="forecast__icon icon__01d"></div>
+                    <div class="forecast__temperature">&deg</div>
+                </div>    
+
+                <div class="forecast__item">
+                    <div class="forecast__time"></div>
+                    <div class="forecast__icon icon__04d"></div>
+                    <div class="forecast__temperature">&deg</div>
+                </div>    
+
+                <div class="forecast__item">
+                    <div class="forecast__time"></div>
+                    <div class="forecast__icon icon__04d"></div>
+                    <div class="forecast__temperature">&deg</div>
+                </div>    
+
+                <div class="forecast__item">
+                    <div class="forecast__time"></div>
+                    <div class="forecast__icon icon__02d"></div>
+                    <div class="forecast__temperature">&deg</div>
+                </div> 
+                
+                <div class="forecast__item">
+                    <div class="forecast__time"></div>
+                    <div class="forecast__icon icon__02d"></div>
+                    <div class="forecast__temperature">&deg</div>
+                </div>    
+
+                <div class="forecast__item">
+                    <div class="forecast__time"></div>
+                    <div class="forecast__icon icon__02d"></div>
+                    <div class="forecast__temperature">&deg</div>
+                </div>    
+            </div>
+
+            <div class="details">
+                <div class="details__row">
+                    <div class="details__item feelslike">
+                        <div class="details__name">Ощущается как</div>
+                        <div class="details__value">&deg</div>
+                    </div>
+
+                    <div class="details__item pressure">
+                        <div class="details__name">Давление</div>
+                        <div class="details__value"> мм. рт. ст</div>
+                    </div>
+                </div>
+
+                <div class="details__row">
+                    <div class="details__item humidity">
+                        <div class="details__name">Влажность</div>
+                        <div class="details__value"> %</div>
+                    </div>
+
+                    <div class="details__item wind">
+                        <div class="details__name">Ветер</div>
+                        <div class="details__value"> м/с</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>    
+
+
+    <script src="data.json"></script>
+    <script src="js/weather.js"></script>
+</body>
+</html>
