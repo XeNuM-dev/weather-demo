@@ -96,6 +96,12 @@ html[data-theme="night"] .weather {
     }
 }
 
+html.transition,
+html.transition * {
+    transition: all 2000ms !important;
+    transition-delay: 0 !important;
+}
+
 .icon__01d,
 .icon__02d,
 .icon__03d,

@@ -1,4 +1,4 @@
-const url = 'js/data.json'
+const url = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=c0707cf6323ac9f7c086e4306cd58174'
 const temperatureUnit = '&deg'
 const humidityUnit = ' %' 
 const pressureUnit = ' мм. рт. ст.'
@@ -39,7 +39,7 @@ function getValueWithUnit(value, unit) {
 }
 
 function getTemperature(value) {
-    let roundedValue = value.toFixed()
+    let roundedValue = value.toFixed() -273
     return getValueWithUnit(roundedValue, temperatureUnit)
 }
 
@@ -49,6 +49,7 @@ function render(data) {
     renderCurrentTemperature(data)
     renderForecast(data)
     renderDetails(data)
+    renderDayOrNight(data)
 }
 
 function renderCity(data) {
@@ -106,15 +107,44 @@ function renderDetails(data) {
 }
 
 function renderDetailsItem(className, value) {
-    let container = document.querySelector(`${className}`).querySelector('details__value')
+    let container = document.querySelector(`.${className}`).querySelector('.details__value')
     container.innerHTML = value
+}
+
+function isDay(data) {
+    let sunrise = data.city.sunrise * 1000
+    let sunset = data.city.sunset * 1000
+
+    let now = Date.now()
+    return (now > sunrise && now < sunset)
+}
+
+function renderDayOrNight(data) {
+    let attrName = isDay(data) ? 'day' : 'night'
+    transition()
+    document.documentElement.setAttribute('data-theme', attrName)
+}
+
+function periodicTasks() {
+    setInterval(start, 6000000)
+    setInterval( function() {
+        renderDayOrNight(currentData)
+    }, 60000)
 }
 
 function start() {
     getData().then(data => {
         currentData = data
         render(data)
+        periodicTasks()
     })
+}
+
+function transition() {
+    document.documentElement.classList.add('transition');
+    setTimeout(function() {
+        document.documentElement.classList.remove('transition')
+    }, 4000)
 }
 
 start()

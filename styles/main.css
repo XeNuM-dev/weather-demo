@@ -64,6 +64,11 @@ html[data-theme="night"] .weather {
     font-size: 1.5em;
     font-weight: bold; }
 
+html.transition,
+html.transition * {
+  transition: all 2000ms !important;
+  transition-delay: 0 !important; }
+
 .icon__01d,
 .icon__02d,
 .icon__03d,
